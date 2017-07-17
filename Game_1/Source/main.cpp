@@ -6,6 +6,8 @@ int main()
 {
     Application app;
 
+    // kasdkasd
+
     app.runMainLoop();
 
     return 0;

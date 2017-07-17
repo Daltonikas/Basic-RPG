@@ -6,6 +6,8 @@ int main()
 {
     Application app;
 
+    //Prikolas
+
     app.runMainLoop();
 
     return 0;

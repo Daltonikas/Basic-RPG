@@ -6,7 +6,11 @@ int main()
 {
     Application app;
 
+<<<<<<< HEAD
     //Konrado prikolas
+=======
+    //Prikolas
+>>>>>>> master
 
     app.runMainLoop();
 

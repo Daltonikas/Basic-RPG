@@ -55,6 +55,8 @@
 			<Add library="sfml-system" />
 			<Add directory="../../../../Program Files (x86)/CodeBlocks/sfml/lib" />
 		</Linker>
+		<Unit filename="Source/Animation.cpp" />
+		<Unit filename="Source/Animation.h" />
 		<Unit filename="Source/Application.cpp" />
 		<Unit filename="Source/Application.h" />
 		<Unit filename="Source/Display.cpp" />
@@ -72,6 +74,8 @@
 		<Unit filename="Source/States/Game_State.h" />
 		<Unit filename="Source/States/Playing_State.cpp" />
 		<Unit filename="Source/States/Playing_State.h" />
+		<Unit filename="Source/States/Splash_Screen_State.cpp" />
+		<Unit filename="Source/States/Splash_Screen_State.h" />
 		<Unit filename="Source/Util/Random.cpp" />
 		<Unit filename="Source/Util/Random.h" />
 		<Unit filename="Source/main.cpp" />

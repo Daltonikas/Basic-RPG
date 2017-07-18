@@ -31,6 +31,8 @@ namespace Display
         sf::Event e;
         while (window->pollEvent(e))
         {
+            //Need additional Events likes what will happen to a screen if someone
+            //will change its size or minimizes the screen, ect...
             if(e.type == sf::Event::Closed)
                 window->close();
         }

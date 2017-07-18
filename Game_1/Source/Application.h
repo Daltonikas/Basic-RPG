@@ -20,6 +20,7 @@ class Application
         void changeState(std::unique_ptr<State::Game_State> state);
 
     private:
+        //our state stack;
         std::stack<std::unique_ptr<State::Game_State>> m_states;
 
 };

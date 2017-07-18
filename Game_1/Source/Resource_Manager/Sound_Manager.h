@@ -8,7 +8,9 @@
 
 enum class Sound_Name
 {
-    Test
+    Test,
+    MattGames,
+    MadeByMatt,
 };
 
 class Sound_Manager : public Resource_Manager<Sound_Name, sf::SoundBuffer>

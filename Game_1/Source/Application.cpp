@@ -3,13 +3,13 @@
 
 //#include <memory>
 
-#include "States/Playing_State.h"
+#include "States/Splash_Screen_State.h"
 
 Application::Application()
 {
-     Display::init();
-
-     pushState(std::make_unique<State::Playing>(*this));
+    Display::init();
+    //Pushing the Splash screen state on top
+    pushState(std::make_unique<State::Splash_Screen>(*this));
 }
 
 void Application::runMainLoop()

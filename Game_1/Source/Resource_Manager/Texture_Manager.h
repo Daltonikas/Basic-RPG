@@ -8,8 +8,11 @@
 //class for holding different textures
 enum class Texture_Name
 {
+    //Needs improvements
     Test,
     Slime,
+    MattGames,
+    MadeByMatt,
 };
 //class for adding textures
 class Texture_Manager : public Resource_Manager<Texture_Name, sf::Texture>

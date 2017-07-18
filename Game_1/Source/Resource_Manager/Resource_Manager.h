@@ -15,6 +15,7 @@ public:
 protected:
     void addResource(Enum name, const std::string& fileName)
     {
+        //loading textures, sounds, and fonts from files
         Resource res;
         res.loadFromFile(fileName);
 

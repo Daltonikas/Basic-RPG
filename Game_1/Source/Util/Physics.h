@@ -2,48 +2,50 @@
 #define PHYSICS_H_INCLUDED
 #include "SFML/System.hpp"
 
-class Collision
+namespace Physics
 {
-public:
-    Collision();
-    bool CheckForColl();
-    bool DirColl();
-    void ResColl();
+    class Collision
+    {
+    public:
+        Collision();
+        bool CheckForColl();
+        bool DirColl();
+        void ResColl();
 
-private:
+    private:
 
-};
+    };
 
-class Movement
-{
-public:
-    Movement();
-    void Move();
-    void Dash();
-    ///At some point we can add sneak
+    class Movement
+    {
+    public:
+        Movement();
+        void Move();
+        void Dash();
+        ///At some point we can add sneak
 
-private:
+    private:
 
-};
+    };
 
-class Action
-{
-public:
-    Action();
-    void Attack();
+    class Action
+    {
+    public:
+        Action();
+        void Attack();
 
-private:
+    private:
 
-};
-class Visibility
-{
-public:
-    Visibility();
+    };
+    class Visibility
+    {
+    public:
+        Visibility();
 
-private:
+    private:
 
-};
-
+    };
+}
 
 
 #endif // PHYSICS_H_INCLUDED

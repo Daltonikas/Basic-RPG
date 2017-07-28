@@ -14,7 +14,7 @@ namespace State
     {
         ///Constructor in witch we add texture to sprites etc...
         //making size of the slime
-        shape.setSize({500, 500});
+        shape.setSize({50, 50});
         //describing where to find slime
         shape.setTexture(&Resource_Holder::get().getTexture(Texture_Name::Slime));
         /*text.setFont(Resource_Holder::get().getFont(Font_Name::Test));
@@ -25,16 +25,11 @@ namespace State
         //Adding manually frames(needs automation), that need to be in loading state, witch needs to be crated;
         //walkAnimation.addFrame({LeftEdge, TopEdge, Width, Height},timeForFrame)
         walkAnimation.addFrames(7, {0, 0, 32, 32}, 0.09);
-        /*walkAnimation.addFrame({0,0,32,32}, 0.09);
-        walkAnimation.addFrame({0,0,64,32}, 0.09);
-        walkAnimation.addFrame({0,0,96,32}, 0.09);
-        walkAnimation.addFrame({0,0,128,32}, 0.09);
-        walkAnimation.addFrame({0,0,160,32}, 0.09);*/
     }
     //For player input
     void Playing::input(const sf::Event& e)
     {
-
+        ///Here we will put the functions that perceive player inputs
     }
     //
     void Playing::input()

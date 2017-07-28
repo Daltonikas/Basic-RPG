@@ -9,7 +9,7 @@
 enum class Texture_Name
 {
     //Needs improvements
-    Test,
+    Idle,
     Slime,
     MattGames,
     MadeByMatt,

@@ -24,9 +24,9 @@ namespace State
                 //constructor for splash screens with sound
                 Splash(const sf::Texture& texture, const sf::SoundBuffer& buffer, float time);
 
+                void input (const sf::Event& e);
                 void start();
                 bool isOver() const;
-
                 void draw();
 
             private:

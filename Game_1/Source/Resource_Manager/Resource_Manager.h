@@ -2,6 +2,10 @@
 #define RESOURCE_MANAGER_H_INCLUDED
 
 #include <map>
+#include <stdexcept>
+
+#include <SFML/Graphics.hpp>
+#include <SFML/Audio.hpp>
 
 template<typename Enum, typename Resource>
 class Resource_Manager
@@ -11,13 +15,17 @@ public:
     {
         return m_resources.at(name);
     }
+    virtual ~Resource_Manager() = default;
 
 protected:
     void addResource(Enum name, const std::string& fileName)
     {
         //loading textures, sounds, and fonts from files
         Resource res;
-        res.loadFromFile(fileName);
+        if(!res.loadFromFile(fileName))
+        {
+            throw std::runtime_error ("Could load resource: " + fileName + "!");
+        }
 
         m_resources.insert(std::make_pair(name, res));
     }

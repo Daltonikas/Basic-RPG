@@ -4,12 +4,15 @@
 #include "../Application.h"
 #include "../Display.h"
 
+#include "Game_State.h"
+
 
 namespace State
 {
     Playing::Playing(Application& application)
     :   Game_State (application)
     {
+        ///Constructor in witch we add texture to sprites etc...
         //making size of the slime
         shape.setSize({500, 500});
         //describing where to find slime
@@ -21,20 +24,19 @@ namespace State
 
         //Adding manually frames(needs automation), that need to be in loading state, witch needs to be crated;
         //walkAnimation.addFrame({LeftEdge, TopEdge, Width, Height},timeForFrame)
-        walkAnimation.addFrame({0, 0, 16, 16}, 0.09);
-        walkAnimation.addFrame({16, 0, 16, 16}, 0.09);
-        walkAnimation.addFrame({32, 0, 16, 16}, 0.09);
-        walkAnimation.addFrame({48, 0, 16, 16}, 0.09);
-        walkAnimation.addFrame({64,0, 16, 16}, 0.09);
-        walkAnimation.addFrame({80, 0, 16, 16}, 0.09);
-        walkAnimation.addFrame({96, 0, 16, 16}, 0.09);
-        walkAnimation.addFrame({112, 0, 16, 16}, 0.09);
-        walkAnimation.addFrame({128, 0, 16, 16}, 0.09);
-        walkAnimation.addFrame({144, 0, 16, 16}, 0.09);
-        walkAnimation.addFrame({160, 0, 16, 16}, 0.09);
+        walkAnimation.addFrames(7, {0, 0, 32, 32}, 0.09);
+        /*walkAnimation.addFrame({0,0,32,32}, 0.09);
+        walkAnimation.addFrame({0,0,64,32}, 0.09);
+        walkAnimation.addFrame({0,0,96,32}, 0.09);
+        walkAnimation.addFrame({0,0,128,32}, 0.09);
+        walkAnimation.addFrame({0,0,160,32}, 0.09);*/
+    }
+    //For player input
+    void Playing::input(const sf::Event& e)
+    {
 
     }
-    // no input yet for player interaction
+    //
     void Playing::input()
     {
 
@@ -42,6 +44,7 @@ namespace State
     //update function has now reason to be and it is to update slimes frame
     void Playing::update(float dt)
     {
+        ///needs game logic: for collision, changing the animations, ...
         shape.setTextureRect(walkAnimation.getFrame());
 
     }

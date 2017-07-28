@@ -22,6 +22,8 @@ class Application
     private:
         //our state stack;
         std::stack<std::unique_ptr<State::Game_State>> m_states;
+        //For storing those sweet ass tunes
+        sf::Music m_music;
 
 };
 

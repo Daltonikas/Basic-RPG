@@ -13,14 +13,25 @@ class Animation
         :   rect            (rect)
         ,   timeToNextFrame (timeToNextFrame)
         {   }
-        const sf::IntRect rect;
-        const float timeToNextFrame;
+        sf::IntRect rect;
+        float timeToNextFrame;
     };
 public:
+    // adding several frames description is in cpp
+    void addFrames(int numFrames, const sf::IntRect& frameSize, float time);
     // Adding frame function
     void addFrame(const sf::IntRect& rect, float timeToNextFrame);
-    //For returning frames
-    sf::IntRect getFrame();
+    //for checking if its on final frame
+    bool isOnFinalFrame() const;
+    //resets frames
+    void reset();
+    //for returning multiple frames
+    const sf::IntRect getFrame();
+    //For returning a singular frame of choosing
+    const sf::IntRect getFrame(int index);
+    //returns number of frames that the animation has
+    int getNumFrames(){return m_frames.size();}
+
 
 private:
     //m_frames holds all the different frames of different types
@@ -28,7 +39,8 @@ private:
     //Setting clock for checking how long frames last
     sf::Clock m_timer;
     //pretty self explanatory, 0 to initialize all frames form first frame and not a random one
-    int m_currentFrame = 0;
+    unsigned m_currentFrame = 0;
+    float m_longestFrameTime = 0;
 
 };
 

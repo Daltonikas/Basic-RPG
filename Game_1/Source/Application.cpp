@@ -1,30 +1,45 @@
 #include "Application.h"
-#include "Display.h"
+
+#include <iostream>
 
 //#include <memory>
+#include "Util/Random.h"
+#include "Display.h"
 
 #include "States/Splash_Screen_State.h"
+#include "States/Playing_State.h"
 
 Application::Application()
 {
-    Display::init();
-    //Pushing the Splash screen state on top
-    pushState(std::make_unique<State::Splash_Screen>(*this));
+    //initiating the window
+    Display::init("Basic Rpg v1.0");
+    //initializing the rng
+    Random::init();
+    //Pushing the Splash screen state on top, basically commanding to start at splash screen tho need additional implimitation
+    //pushState(std::make_unique<State::Splash_Screen>(*this)); <-to start at the splash screen
+    pushState(std::make_unique<State::Playing>(*this));
 }
 
 void Application::runMainLoop()
 {
+    //main look will run till you close window
     while(Display::isOpen())
     {
-        Display::checkWindowEvents();
+        //
+        sf::Clock c;
 
-        Display::clear();
+        auto dt = c.restart().asSeconds();
 
-        m_states.top() -> input     ();
-        m_states.top() -> update    (0.0f);
-        m_states.top() -> draw      ();
+        Display::clear({50, 50, 100});
 
-        Display::display();
+        m_states.top()->input   ();
+        m_states.top()->update  (dt);
+        m_states.top()->draw    ();
+
+        Display::update         ();
+        //calculateFPS            ();
+
+        Display::pollEvents(*m_states.top());
     }
 }
 

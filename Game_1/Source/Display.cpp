@@ -1,46 +1,68 @@
 #include "Display.h"
 
+#include "States/Game_State.h"
+
 #include <memory>
 
 namespace Display
 {
-    std::unique_ptr<sf::RenderWindow> window;
-
-    void init()
+    namespace
     {
-        window = std::make_unique <sf::RenderWindow>(sf::VideoMode(WIDTH, HEIGHT), "WINDOW");
-    }
+        sf::RenderWindow window;
+        sf::Image icon;
 
-    void clear()
-    {
-        window->clear();
-    }
-
-    void display()
-    {
-        window->display();
-    }
-
-    void draw(const sf::Drawable& drawable)
-    {
-        window->draw(drawable);
-    }
-
-    void checkWindowEvents()
-    {
-        sf::Event e;
-        while (window->pollEvent(e))
+        void checkForClose(const sf::Event& e)
         {
-            //Need additional Events likes what will happen to a screen if someone
-            //will change its size or minimizes the screen, ect...
-            if(e.type == sf::Event::Closed)
-                window->close();
+            if (e.type == sf::Event::Closed)
+            {
+                window.close();
+            }
         }
+    }
+
+    void init(const std::string& name)
+    {
+        window.create(  {WIDTH, HEIGHT},
+                        name,
+                        sf::Style::Close);
     }
 
     bool isOpen()
     {
-        return window->isOpen();
+        return window.isOpen();
+    }
+
+    void update()
+    {
+        window.display();
+    }
+
+    void clear(const sf::Color& colour)
+    {
+        window.clear(colour);
+    }
+
+    void draw(const sf::Drawable& drawable)
+    {
+        window.draw(drawable);
+    }
+
+    void pollEvents(State::Game_State& gameState)
+    {
+        //Creating an event holder e
+        sf::Event e;
+        while (window.pollEvent(e))
+        {
+            //Checking for player interactions
+            gameState.input(e);
+            //Checking if the window has been closed
+            checkForClose(e);
+        }
+    }
+
+    const sf::RenderWindow& get()
+    {
+        return window;
     }
 }
 

@@ -76,6 +76,8 @@
 		<Unit filename="Source/States/Playing_State.h" />
 		<Unit filename="Source/States/Splash_Screen_State.cpp" />
 		<Unit filename="Source/States/Splash_Screen_State.h" />
+		<Unit filename="Source/Util/Physics.cpp" />
+		<Unit filename="Source/Util/Physics.h" />
 		<Unit filename="Source/Util/Random.cpp" />
 		<Unit filename="Source/Util/Random.h" />
 		<Unit filename="Source/main.cpp" />

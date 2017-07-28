@@ -69,6 +69,7 @@ namespace   State
 
     void Splash_Screen::update(float dt)
     {
+        ///this is where we can add music, sound, texture and font loading
         //plays the splash screen if the queue is not empty
         if(!m_splashes.empty())
         {

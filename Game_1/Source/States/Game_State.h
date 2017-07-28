@@ -11,6 +11,11 @@ namespace State
     {
     public:
         Game_State(Application& application);
+        //Making this state a default state, but before that need fixing
+        virtual ~Game_State() = default;
+
+        //For player interaction
+        virtual void input (const sf::Event& e) = 0;
 
         virtual void input  () = 0;
         virtual void update (float dt) = 0;

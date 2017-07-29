@@ -61,6 +61,7 @@
 		<Unit filename="Source/Application.h" />
 		<Unit filename="Source/Display.cpp" />
 		<Unit filename="Source/Display.h" />
+		<Unit filename="Source/Game_Object/Game_Object.h" />
 		<Unit filename="Source/Resource_Manager/Font_Manager.cpp" />
 		<Unit filename="Source/Resource_Manager/Font_Manager.h" />
 		<Unit filename="Source/Resource_Manager/Resource_Holder.cpp" />
